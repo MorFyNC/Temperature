@@ -1,0 +1,29 @@
+Max temp: 33
+Min temp: -10
+Avg temp: 7,619047619047619047619047619
+Повторения: 
+{
+[Day: 08.05.2024 0:31:55 Temp: 0]
+[Day: 11.05.2024 0:31:55 Temp: 0]
+[Day: 12.05.2024 0:31:55 Temp: 0]
+[Day: 19.05.2024 0:31:55 Temp: 0]
+}
+Повышения и понижения: 
+{
+[Day 1: 29.04.2024 0:31:55; Day 1 temp: 18;
+Day 2: 30.04.2024 0:31:55; Day 2 temp: -5;
+Difference: 23; MaxOrMin: Min]
+[Day 1: 30.04.2024 0:31:55; Day 1 temp: -5;
+Day 2: 01.05.2024 0:31:55; Day 2 temp: 6;
+Difference: 11; MaxOrMin: Max]
+[Day 1: 02.05.2024 0:31:55; Day 1 temp: 10;
+Day 2: 03.05.2024 0:31:55; Day 2 temp: 25;
+Difference: 15; MaxOrMin: Max]
+[Day 1: 05.05.2024 0:31:55; Day 1 temp: 33;
+Day 2: 06.05.2024 0:31:55; Day 2 temp: 10;
+Difference: 23; MaxOrMin: Min]
+[Day 1: 07.05.2024 0:31:55; Day 1 temp: 11;
+Day 2: 08.05.2024 0:31:55; Day 2 temp: 0;
+Difference: 11; MaxOrMin: Min]
+
+}

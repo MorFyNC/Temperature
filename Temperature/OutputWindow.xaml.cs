@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -77,16 +78,18 @@ namespace Temperature
             string Repeats = "";
             foreach (var s in (List<Weather>)RepeatsLstView.ItemsSource)
             {
-                
+                Repeats += $"[Day: {s.DateTime} Temp: {s.Temperature}]\n";
             }
 
+            Repeats = Repeats.Trim();
             string Extremums = "";
             foreach (var s in (List<Extremum>)ExtremumsLstView.ItemsSource)
             {
-                Extremums += $"[Day 1: {s.PreviousDayWeather.DateTime}; Day 1 temp: {s.PreviousDayWeather.Temperature};\n" +
-                           $"Day 2: {s.NextDayWeather.DateTime}; Day 2 temp: {s.NextDayWeather.Temperature};\n" +
+                Extremums += $"[Day 1: {s.PreviousDayWeather.DateTime}; Day 1 temp: {s.PreviousDayWeather.Temperature}; " +
+                           $"Day 2: {s.NextDayWeather.DateTime}; Day 2 temp: {s.NextDayWeather.Temperature}; " +
                            $"Difference: {s.Difference}; MaxOrMin: {s.MaxOrMin}]\n";
             }
+            Extremums = Extremums.Trim();
             File.WriteAllText("Data.txt", $"{MaxTempLbl.Content}\n" +
                                           $"{MinTempLbl.Content}\n" +
                                           $"{AvgTempLbl.Content}\n" +
@@ -94,6 +97,7 @@ namespace Temperature
                                           $"{Repeats}\n}}\n" +
                                           $"Повышения и понижения: \n{{\n" +
                                           $"{Extremums}\n}}");
+            Process.Start("notepad.exe", "Data.txt");
         }
     }
 }
