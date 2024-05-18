@@ -1,0 +1,41 @@
+﻿<Window x:Class="Temperature.OutputWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Temperature"
+        mc:Ignorable="d"
+        Title="OutputWindow" Height="450" Width="800">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Margin="10" Orientation="Vertical" HorizontalAlignment="center">
+            <Label x:Name="MaxTempLbl"></Label>
+            <Label x:Name="MinTempLbl"></Label>
+            <Label x:Name="AvgTempLbl"></Label>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1">
+            <Label Content="Максимальное число повторений" HorizontalContentAlignment="Center"></Label>
+            <ListView x:Name="RepeatsLstView"  Margin="20">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=DateTime}" Width="300">Day</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Temperature}">Temp</GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+        
+    </Grid>
+</Window>
