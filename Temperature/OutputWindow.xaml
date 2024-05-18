@@ -25,9 +25,9 @@
             <Label x:Name="MinTempLbl"></Label>
             <Label x:Name="AvgTempLbl"></Label>
         </StackPanel>
-        <StackPanel Orientation="Vertical" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1">
+        <StackPanel Orientation="Vertical" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1" Margin="5">
             <Label Content="Максимальное число повторений" HorizontalContentAlignment="Center"></Label>
-            <ListView x:Name="RepeatsLstView"  Margin="20">
+            <ListView x:Name="RepeatsLstView">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=DateTime}" Width="300">Day</GridViewColumn>
@@ -36,6 +36,21 @@
                 </ListView.View>
             </ListView>
         </StackPanel>
-        
+        <StackPanel Orientation="Vertical" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1" Grid.Column="2" Margin="5">
+            <Label Content="Подъемы и падения" HorizontalContentAlignment="Center"></Label>
+            <ListView x:Name="ExtremumsLstView">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=PreviousDayWeather.DateTime}" Width="100">Day 1</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=PreviousDayWeather.Temperature}" Width="70">Day 1 temp</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=NextDayWeather.DateTime}" Width="100">Day 2</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=NextDayWeather.Temperature}" Width="70">Day 2 temp</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Difference}">Temp</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=MaxOrMin}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+        <Button Content="Save to file" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="SaveToFile"></Button>
     </Grid>
 </Window>

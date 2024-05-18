@@ -10,13 +10,7 @@ namespace Temperature.Data
     {
         public Weather PreviousDayWeather { get; set; } = prevDayWeather;
         public Weather NextDayWeather { get; set; } = nextDayWeather;
-        public MaxMin MaxOrMin { get; set; } = prevDayWeather.Temperature > nextDayWeather.Temperature ? MaxMin.Min : MaxMin.Max;
+        public string MaxOrMin { get; set; } = prevDayWeather.Temperature > nextDayWeather.Temperature ? "Min" : "Max";
         public decimal Difference { get; set; } = Math.Abs(prevDayWeather.Temperature - nextDayWeather.Temperature);
-    }
-
-    public enum MaxMin
-    {
-        Max,
-        Min
     }
 }

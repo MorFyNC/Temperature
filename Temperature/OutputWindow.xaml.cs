@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +67,33 @@ namespace Temperature
                     Res.Add(new Extremum(lst[i], lst[i+1]));
                 }
             }
+
+            ExtremumsLstView.ItemsSource = Res;
+            ExtremumsLstView.Items.Refresh();
+        }
+
+        private void SaveToFile(object sender, RoutedEventArgs e)
+        {
+            string Repeats = "";
+            foreach (var s in (List<Weather>)RepeatsLstView.ItemsSource)
+            {
+                
+            }
+
+            string Extremums = "";
+            foreach (var s in (List<Extremum>)ExtremumsLstView.ItemsSource)
+            {
+                Extremums += $"[Day 1: {s.PreviousDayWeather.DateTime}; Day 1 temp: {s.PreviousDayWeather.Temperature};\n" +
+                           $"Day 2: {s.NextDayWeather.DateTime}; Day 2 temp: {s.NextDayWeather.Temperature};\n" +
+                           $"Difference: {s.Difference}; MaxOrMin: {s.MaxOrMin}]\n";
+            }
+            File.WriteAllText("Data.txt", $"{MaxTempLbl.Content}\n" +
+                                          $"{MinTempLbl.Content}\n" +
+                                          $"{AvgTempLbl.Content}\n" +
+                                          $"Повторения: \n{{\n" +
+                                          $"{Repeats}\n}}\n" +
+                                          $"Повышения и понижения: \n{{\n" +
+                                          $"{Extremums}\n}}");
         }
     }
 }
